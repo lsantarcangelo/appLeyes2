@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Head -->
+<%- include('../partials/head', {title: 'Editar'}) %>
+<body>
+    <!-- header -->
+    <%- include('../partials/headerNavbar') %>
+    <!-- /header -->
+
+    <div class="container form-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="form-title">Formulario de Edición de Leyes</h2>
+            </div>
+        </div>
+        <div class="col-12">
+            <form action="/leyes/edit/<%= editingLey.id %>" method="POST" enctype="multipart/form-data">
+                <div class="row leyes-detail">
+                    <div class="form-group col-12 col-md-6">
+                        <label for="number" class="form-label">Número:</label>
+						<input type="text" id="number" name="number" class="form-control" value="<%= editingLey.number %>">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label for="year" class="form-label">Año:</label>
+						<input type="text" id="year" name="year" class="form-control" value="<%= editingLey.year %>">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label for="type" class="form-label">Tipo de Norma:</label>
+                        <select name="type" id="type" class="form-control">
+                            <% let typeOptions = [
+                                { id: 'ley-ciudad',
+                                name: 'Ley Ciudad' },
+                                { id: 'ordenanza',
+                                name: 'Ordenanza' },
+                                { id: 'dictamen',
+                                name: 'Dictamen' },
+                                { id: 'resolucion',
+                                name: 'Resolución' },
+                                { id: 'disposicion',
+                                name: 'Disposición' }
+                            ] %>
+                            <% for( let i = 0; i < typeOptions.length; i++ ) { %>
+                                <% if (typeOptions[i].id == editingLey.type) { %>
+                                    <option value="<%= typeOptions[i].id %>" selected>
+                                        <%= typeOptions[i].name %> 
+                                    </option>
+                                <% } else { %>
+                                <option value="<%= typeOptions[i].id %>">
+                                    <%= typeOptions[i].name %> 
+                                </option>
+                                <% } %>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label for="status" class="form-label">Estado:</label>
+                        <select name="status" id="status" class="form-control">
+                            <% let statusOptions = [
+                                { id: 'vigente',
+                                name: 'Vigente' },
+                                { id: 'no-vigente',
+                                name: 'No Vigente' }
+                            ] %>
+                            <% for( let i = 0; i < statusOptions.length; i++ ) { %>
+                                <% if (statusOptions[i].id == editingLey.status) { %>
+                                    <option value="<%= statusOptions[i].id %>" selected>
+                                        <%= statusOptions[i].name %> 
+                                    </option>
+                                <% } else { %>
+                                <option value="<%= statusOptions[i].id %>">
+                                    <%= statusOptions[i].name %> 
+                                </option>
+                                <% } %>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="norm" class="form-label">Adjuntar Norma</label>
+                        <input type="file" class="form-control" name="norm" value="<%= editingLey.file %>">
+                    </div>
+                    <div class="form-group col-12">
+                        <button type="submit" class="btn btn-info btn-sm">Guardar</button>
+                        <button type="button" class="btn btn-info btn-sm" onclick="history.back()">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- footer -->
+    <%- include('../partials/footer') %>
+    <!-- /footer -->
+</body>
+</html>

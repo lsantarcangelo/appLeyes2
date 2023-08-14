@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Head -->
+<%- include('partials/head', {title: 'Perfil de Usuario'}) %>
+	<body>
+		<!-- header -->
+		<%- include('partials/headerNavbar') %>
+		<!-- /header -->
+		<div class="container background-wrapper">
+			<div class="card" style="width: 18rem; margin: auto; margin-top: 1.5rem; margin-bottom: 1.5rem;">
+				<img src="/images/users/<%= user.avatar %>" class="card-img-top" alt="">
+				<div class="card-body">
+					<h4>Nombre:<%- ' ' + user.firstName + ' ' + user.lastName %></h4>
+					<p class="card-text">Email: <%- user.email %></p>
+				</div>
+			</div>
+		</div>
+		<!-- footer -->
+		<%- include('partials/footer') %>
+		<!-- /footer -->
+  </body>
+</html>

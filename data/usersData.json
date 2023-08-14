@@ -1,0 +1,20 @@
+[
+ {
+  "id": 1,
+  "firstName": "Leandro",
+  "lastName": "Santarcangelo",
+  "email": "lsantarcangelo@yahoo.com.ar",
+  "password": "$2a$10$gRuLMN7AxzMDRIV.aafHrOFC2q3BrbGx7ZQxsaUWrlt1B4ck3hawW",
+  "avatar": "default-avatar1685617968409 - .png",
+  "admin": 1
+ },
+ {
+  "id": 2,
+  "firstName": "Carlos",
+  "lastName": "Sanchez",
+  "email": "carlos.sanchez@gmail.com",
+  "password": "$2a$10$AQ6J2/nYQqaqF8ivAH2Zw.A7pB5LCqvSGC7tRkg2vPjSUKPhh50/C",
+  "avatar": "default-avatar1687791270512 - .png",
+  "admin": 0
+ }
+]

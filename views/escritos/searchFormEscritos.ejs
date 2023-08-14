@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Head -->
+<%- include('../partials/head', {title: 'Búsqueda de Doctrinas'}) %>
+	<body>
+		<!-- header -->
+		<%- include('../partials/headerNavbar') %>
+		<!-- /header -->
+		<div class="container-fluid background-wrapper">
+			<div class="container form-wrapper">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="form-title">Búsqueda de Escritos</h2>
+					</div>
+				</div>
+				<div class="col-12">
+					<form action="/escritos/search/result" method="GET">
+						<div class="row">
+							<div class="form-group col-12">
+								<label for="subject" class="form-label">Temática:</label>
+								<input type="text" id="subject" name="subject" class="form-control">              
+							</div>
+							<div class="form-group col-12">
+								<label for="part" class="form-label">Parte:</label>
+								<input type="text" id="part" name="part" class="form-control">              
+							</div>
+							<div class="form-group col-12">
+								<label for="instance" class="form-label">Instancia:</label>
+								<input type="text" id="instance" name="instance" class="form-control">              
+							</div>
+							<div class="form-group col-12">
+								<label for="status" class="form-label">Estado:</label>
+								<input type="text" id="status" name="status" class="form-control">              
+							</div>
+							<div class="form-group col-12">
+								<button type="submit" class="btn btn-info btn-sm">Enviar</button>
+								<button type="reset" class="btn btn-info btn-sm">Limpiar</button>
+							</div>
+						</div>
+					</form>
+				</div>	
+			</div>
+			<div class="container">
+				<h3>Resultados</h3>
+				<% if (data) { %>
+					<% data.forEach(element => { %>
+						<ul>
+							<li>Temática: <%= element.subject %> - <%= element.part %> - <%= element.instance %></li>
+							<a href="/escritos/detail/<%= element.id %>">Ver Escrito</a>
+						</ul>
+					<% }) %>
+				<% } %>
+			</div>
+		</div>
+		<!-- footer -->
+		<%- include('../partials/footer') %>
+		<!-- /footer -->
+  </body>
+</html>

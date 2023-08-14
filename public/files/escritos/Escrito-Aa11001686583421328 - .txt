@@ -1,0 +1,4 @@
+inicio
+test
+escrito Aa1100
+fin

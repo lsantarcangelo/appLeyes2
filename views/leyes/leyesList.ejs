@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Head -->
+<%- include('../partials/head', {title: 'Listado'}) %>
+	<body>
+		<!-- header -->
+		<%- include('../partials/headerNavbar') %>
+		<!-- /header -->
+		<div class="card">
+			<div class="card-body">
+				<div class="leyesList">
+					<% leyes.forEach(element => { %>
+						<ul>
+							<li>Nombre: <%= element.entityTypes.name %> - <%= element.number %> - <%= element.year %></li>	
+							<li class="adjuntos"><a href="../files/leyes/<%= element.file %>"><%= element.file %></a></li>
+						</ul>
+					<% }) %>
+				</div>
+			</div>
+		</div>
+		<!-- footer -->
+		<%- include('../partials/footer') %>
+		<!-- /footer -->
+  </body>
+</html>

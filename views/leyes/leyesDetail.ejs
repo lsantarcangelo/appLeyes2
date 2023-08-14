@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Head -->
+<%- include('../partials/head', {title: 'Detalle'}) %>
+	<body>
+		<!-- header -->
+		<%- include('../partials/headerNavbar') %>
+		<!-- /header -->
+		<div class="container-fluid background-wrapper">
+			<div class="container detail-group">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="form-title"><%= leyDetail.entityTypes.name %> - <%= leyDetail.number %> - <%= leyDetail.year %></h2>
+					</div>
+				</div>
+				<div class="col-12">
+					<p>Tipo: <%= leyDetail.entityTypes.name %></p>
+					<p>Número: <%= leyDetail.number %></p>
+					<p>Año: <%= leyDetail.year %></p>
+					<% if (Array.isArray(leyDetail.file)) { %>
+						<% leyDetail.file.forEach(file => { %>
+							<li class="adjuntos"><a href="../../files/leyes/<%= file %>"><%= file %></a></li>
+						<% }) %>
+					<% } else { %>
+							<li class="adjuntos"><a href="../../files/leyes/<%= leyDetail.file %>"><%= leyDetail.file %></a></li>
+					<% } %>
+					<br>
+					<form action="/leyes/edit/<%= leyDetail.id %>" method="GET">
+						<div class="form-group">
+							<button type="button" class="btn btn-info btn-sm" onclick="history.back()">Volver</button> 
+							<% if (locals.isLogged) { %>
+								<% if (locals.loggedUser.admin == 1) { %>
+									<button type="submit" class="btn btn-info btn-sm edit-button">Editar</button>
+								<% } %>
+							<% } %> 
+						</div>
+					</form>
+				</div>	
+			</div>
+		</div>
+		<!-- footer -->
+		<%- include('../partials/footer') %>
+		<!-- /footer -->
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Head -->
+<%- include('../partials/head', {title: 'Búsqueda'}) %>
+	<body>
+		<!-- header -->
+		<%- include('../partials/headerNavbar') %>
+		<!-- /header -->
+		<div class="container-fluid background-wrapper">
+			<div class="container form-wrapper">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="form-title">Busqueda de normas</h2>
+					</div>
+				</div>
+				<div class="col-12">
+					<form action="/leyes/search/result" method="GET">
+						<div class="row">
+							<div class="form-group col-12">
+								<label for="type" class="form-label">Tipo:</label>
+								<input type="text" id="type" name="type" class="form-control">              
+							</div>
+							<div class="form-group col-12">
+								<label for="number" class="form-label">Número:</label>
+								<input type="text" id="number" name="number" class="form-control">              
+							</div>
+							<div class="form-group col-12">
+								<label for="year" class="form-label">Año:</label>
+								<input type="text" id="year" name="year" class="form-control">              
+							</div>
+							<div class="form-group col-12">
+								<label for="status" class="form-label">Estado:</label>
+								<input type="text" id="status" name="status" class="form-control">              
+							</div>
+							<div class="form-group col-12">
+								<button type="submit" class="btn btn-info btn-sm">Enviar</button>
+								<button type="reset" class="btn btn-info btn-sm">Limpiar</button>
+							</div>
+						</div>
+					</form>
+				</div>	
+			</div>
+			<div class="container result-list">
+				<h3>Resultados</h3>			
+				<% if (data) { %>
+					<% data.forEach(element => { %>
+						<ul>
+							<li>Nombre: <%= element.entityTypes.name %> - <%= element.number %> - <%= element.year %></li>
+							<a href="/leyes/detail/<%= element.id %>">
+								Ver Detalle
+							</a>
+						</ul>
+					<% }) %>
+				<% } %>
+			</div>
+		</div>
+		<!-- footer -->
+		<%- include('../partials/footer') %>
+		<!-- /footer -->
+  </body>
+</html>
