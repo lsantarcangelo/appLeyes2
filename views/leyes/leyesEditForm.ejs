@@ -27,26 +27,14 @@
                     <div class="form-group col-12 col-md-6">
                         <label for="type" class="form-label">Tipo de Norma:</label>
                         <select name="type" id="type" class="form-control">
-                            <% let typeOptions = [
-                                { id: 'ley-ciudad',
-                                name: 'Ley Ciudad' },
-                                { id: 'ordenanza',
-                                name: 'Ordenanza' },
-                                { id: 'dictamen',
-                                name: 'Dictamen' },
-                                { id: 'resolucion',
-                                name: 'Resolución' },
-                                { id: 'disposicion',
-                                name: 'Disposición' }
-                            ] %>
-                            <% for( let i = 0; i < typeOptions.length; i++ ) { %>
-                                <% if (typeOptions[i].id == editingLey.type) { %>
-                                    <option value="<%= typeOptions[i].id %>" selected>
-                                        <%= typeOptions[i].name %> 
+                            <% for( let i = 0; i < types.length; i++ ) { %>
+                                <% if (types[i].id == editingLey.type_id) { %>
+                                    <option value="<%= types[i].id %>" selected>
+                                        <%= types[i].name %> 
                                     </option>
                                 <% } else { %>
-                                <option value="<%= typeOptions[i].id %>">
-                                    <%= typeOptions[i].name %> 
+                                <option value="<%= types[i].id %>">
+                                    <%= types[i].name %> 
                                 </option>
                                 <% } %>
                             <% } %>

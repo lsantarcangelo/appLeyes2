@@ -17,8 +17,13 @@
 					<form action="/leyes/search/result" method="GET">
 						<div class="row">
 							<div class="form-group col-12">
-								<label for="type" class="form-label">Tipo:</label>
-								<input type="text" id="type" name="type" class="form-control">              
+								<label for="type" class="form-label">Tipo de Norma:</label>
+								<select name="type" id="type" class="form-control">
+									<option value="">Seleccione el tipo</option>
+									<% for( let i = 0; i < types.length; i++ ) { %>
+										<option value="<%= types[i].id %>"><%= types[i].name %></option>
+									<% } %> 
+								</select>            
 							</div>
 							<div class="form-group col-12">
 								<label for="number" class="form-label">Número:</label>
@@ -39,23 +44,6 @@
 						</div>
 					</form>
 				</div>	
-			</div>
-			<div class="container">
-				<h3>Resultados</h3>
-				<% if (data) { %>
-					<% data.forEach(element => { %>
-						<ul>
-							<li>Nombre: <%= element.type %> - <%= element.number %> - <%= element.year %></li>
-							<% if (Array.isArray(element.norm)) { %>
-								<% element.norm.forEach(file => { %>
-									<li class="adjuntos"><a href="../../files/leyes/<%= file %>"><%= file %></a></li>
-								<% }) %>
-							<% } else { %>
-									<li class="adjuntos"><a href="../../files/leyes/<%= element.norm %>"><%= element.norm %></a></li>
-							<% } %>
-						</ul>
-					<% }) %>
-				<% } %>
 			</div>
 		</div>
 		<!-- footer -->

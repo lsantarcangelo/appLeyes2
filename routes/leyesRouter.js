@@ -17,23 +17,25 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-//Listar Normas //
+//Listar Leyes //
 router.get('/list', leyesController.list);
 
-//Cargar una Norma //
+//Cargar una Ley //
 router.get('/create', leyesController.create);
 router.post('/create', upload.single('file'), leyesController.store);
 
-// Buscar Normas //
+// Buscar Ley //
 router.get('/search', leyesController.search);
 router.get('/search/result', leyesController.searchResult);
 
-// Detalle de una Norma //
+// Detalle de Ley //
 router.get('/detail/:id/', leyesController.detail) 
 
-// Editar una Norma //
+// Editar una Ley //
 router.get('/edit/:id/', leyesController.edit);
 router.post('/edit/:id/', leyesController.update);
 
+// Eliminar una Ley //
+router.post('/delete/:id', leyesController.delete);
 
 module.exports = router

@@ -28,9 +28,9 @@
                         <label for="type" class="form-label">Tipo de Norma:</label>
                         <select name="type" id="type" class="form-control">
                             <option value="">Elegir opción</option>
-                                <% for( let index = 0; index < selectType.length; index++ ) { %>
+                            <% for( let index = 0; index < selectType.length; index++ ) { %>
                                 <option value=<%= selectType[index].id %>><%= selectType[index].name %></option>
-                                <% } %>
+                            <% } %>
                         </select>                        
                     </div>
                     <div class="form-group col-12 col-md-6">

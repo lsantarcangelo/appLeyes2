@@ -17,6 +17,7 @@
 					<p>Tipo: <%= leyDetail.entityTypes.name %></p>
 					<p>Número: <%= leyDetail.number %></p>
 					<p>Año: <%= leyDetail.year %></p>
+					<p>Estado: <%= leyDetail.status %></p>
 					<% if (Array.isArray(leyDetail.file)) { %>
 						<% leyDetail.file.forEach(file => { %>
 							<li class="adjuntos"><a href="../../files/leyes/<%= file %>"><%= file %></a></li>
@@ -34,6 +35,13 @@
 								<% } %>
 							<% } %> 
 						</div>
+					</form>
+					<form action="/leyes/delete/<%= leyDetail.id%>" method="POST">
+						<% if (locals.isLogged) { %>
+							<% if (locals.loggedUser.admin == 1) { %>
+								<button type="submit" class="btn btn-info btn-sm edit-button">Eliminar</button>
+							<% } %>
+						<% } %> 
 					</form>
 				</div>	
 			</div>
