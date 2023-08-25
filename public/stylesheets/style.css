@@ -10,24 +10,42 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: whitesmoke;
 }
 
-.jumbotron {
-  background-color: #616060;
-  background: linear-gradient(357deg, rgba(46,46,46,255) 0%, rgba(97,96,96,1) 35%, rgba(210,210,210,1) 100%);
+#main-div, .background-wrapper {
+  height: 50rem;
+  background-image: url('/images/main/law-icon.jpg');
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
 }
 
 .navbar {
-  background-color: #616060;
+  background-color: transparent;
   margin: 0;
   padding-bottom: 1rem;
-  padding: 0;
+  height: 60px;
 }
+
 
 #navbarNav .nav-item {
   margin: 0 0.5rem;
   font-size: 1.2rem;
+}
+
+.navbar-brand-custom {
+  display: inline-block;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap
 }
 
 .background-wrapper {
@@ -39,12 +57,30 @@ a {
 }
 
 .form-wrapper {
+  margin-top: 3rem;
   padding: 1rem 4rem;
+  width: 30rem;
+  background-color: lightgray;
+  opacity: 0.95;
+  border: 2px solid lightgray;
+  border-radius: 5px;
+}
+
+.form-control {
+  font: 13px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.form-title {
+  font-size: 1.6rem;
+}
+
+.wide-form {
+  width: 40rem;
 }
 
 .result-list {
   padding: 1rem 4rem;
-
+  background: transparent;
 }
 
 .leyesList {
@@ -64,6 +100,13 @@ a {
 
 li.adjuntos {
   list-style: none;
+}
+
+#user-card {
+  width: 18rem; 
+  margin: auto; 
+  margin-top: 4rem; 
+  margin-bottom: 1.5rem;
 }
 
 .main-footer {

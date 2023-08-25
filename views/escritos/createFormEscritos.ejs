@@ -3,55 +3,55 @@
 <!-- Head -->
 <%- include('../partials/head', {title: 'Crear'}) %>
 <body>
-    <!-- header -->
-    <%- include('../partials/headerNavbar') %>
-    <!-- /header -->
-
-    <div class="container form-wrapper">
-        <div class="row">
+    <div class="container-fluid background-wrapper">
+        <!-- header -->
+        <%- include('../partials/headerNavbar') %>
+        <!-- /header -->
+        <div class="container form-wrapper wide-form">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="form-title">Formulario de Carga de Escritos</h2>
+                </div>
+            </div>
             <div class="col-12">
-                <h2 class="form-title">Formulario de Carga de Escritos</h2>
+                <form action="/escritos/create" method="POST" enctype="multipart/form-data">
+                    <div class="row leyes-detail">
+                        <div class="form-group col-12 col-md-6">
+                            <label for="subject" class="form-label">Temática:</label>
+                            <input type="text" id="subject" name="subject" class="form-control">
+                        </div>
+                        <div class="form-group col-12 col-md-6">
+                            <label for="part" class="form-label">Parte:</label>
+                            <input type="text" id="part" name="part" class="form-control">
+                        </div>
+                        <div class="form-group col-12 col-md-6">
+                            <label for="instance" class="form-label">Instancia:</label>
+                            <select name="instance" id="instance" class="form-control">
+                                <option value="">Elegir opción</option>
+                                <option value="administrativa">Administrativa</option>
+                                <option value="judicial">Judicial</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-12 col-md-6">
+                            <label for="status" class="form-label">Estado:</label>
+                            <select name="status" id="status" class="form-control">
+                                <option value="">Elegir opción</option>
+                                <option value="vigente">Vigente</option>
+                                <option value="no-vigente">No Vigente</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="norm" class="form-label">Adjuntar Escrito</label>
+                            <input type="file" class="form-control" name="norm">
+                        </div>
+                        <div class="form-group col-12">
+                            <button type="submit" class="btn btn-info btn-sm">Guardar</button>
+                            <button type="reset" class="btn btn-info btn-sm">Limpiar</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="col-12">
-            <form action="/escritos/create" method="POST" enctype="multipart/form-data">
-                <div class="row leyes-detail">
-                    <div class="form-group col-12 col-md-6">
-                        <label for="subject" class="form-label">Temática:</label>
-						<input type="text" id="subject" name="subject" class="form-control">
-                    </div>
-                    <div class="form-group col-12 col-md-6">
-                        <label for="part" class="form-label">Parte:</label>
-						<input type="text" id="part" name="part" class="form-control">
-                    </div>
-                    <div class="form-group col-12 col-md-6">
-                        <label for="instance" class="form-label">Instancia:</label>
-                        <select name="instance" id="instance" class="form-control">
-                            <option value="">Elegir opción</option>
-                            <option value="administrativa">Administrativa</option>
-                            <option value="judicial">Judicial</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-12 col-md-6">
-                        <label for="status" class="form-label">Estado:</label>
-                        <select name="status" id="status" class="form-control">
-                            <option value="">Elegir opción</option>
-                            <option value="vigente">Vigente</option>
-                            <option value="no-vigente">No Vigente</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-12">
-                        <label for="norm" class="form-label">Adjuntar Escrito</label>
-                        <input type="file" class="form-control" name="norm">
-                    </div>
-                    <div class="form-group col-12">
-                        <button type="submit" class="btn btn-info btn-sm">Guardar</button>
-                        <button type="reset" class="btn btn-info btn-sm">Limpiar</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-
     </div>
 
     <!-- footer -->

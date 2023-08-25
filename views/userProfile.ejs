@@ -3,12 +3,12 @@
 <!-- Head -->
 <%- include('partials/head', {title: 'Perfil de Usuario'}) %>
 	<body>
-		<!-- header -->
-		<%- include('partials/headerNavbar') %>
-		<!-- /header -->
-		<div class="container background-wrapper">
-			<div class="card" style="width: 18rem; margin: auto; margin-top: 1.5rem; margin-bottom: 1.5rem;">
-				<img src="/images/users/<%= user.avatar %>" class="card-img-top" alt="">
+		<div class="container-fluid background-wrapper">
+			<!-- header -->
+			<%- include('partials/headerNavbar') %>
+			<!-- /header -->
+			<div id="user-card" class="card">
+				<img src="/images/users/<%= user.avatar %>" class="card-img-top" alt="Avatar de usuario">
 				<div class="card-body">
 					<h4>Nombre:<%- ' ' + user.firstName + ' ' + user.lastName %></h4>
 					<p class="card-text">Email: <%- user.email %></p>

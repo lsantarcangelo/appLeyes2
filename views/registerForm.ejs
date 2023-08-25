@@ -3,75 +3,76 @@
 <!-- Head -->
 <%- include('partials/head', {title: 'Register'}) %>
 <body>
-    <!-- header -->
-    <%- include('partials/headerNavbar') %>
-    <!-- /header -->
-
-    <div class="container form-wrapper">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="form-title">Generar una cuenta</h2>
-            </div>
-        </div>
-        <div class="col-12">
-            <form action="/users/register" method="POST" enctype="multipart/form-data">
-                <div class="row leyes-detail">
-                    <div class="form-group col-12 col-md-6">
-                        <label for="firstName" class="form-label">Nombre:</label>
-						<input 
-                            type="text" 
-                            id="firstName" 
-                            name="firstName" 
-                            class="form-control <%= (locals.errors && errors.firstName) ? 'is-invalid' : null %>"
-                            value="<%= locals.dataOnHold ? dataOnHold.firstName : null %>">
-                        <% if (locals.errors && errors.firstName) { %>
-                            <small class="text-danger"><%= errors.firstName.msg %></small>
-                        <% } %>                        
-                    </div>
-                    <div class="form-group col-12 col-md-6">
-                        <label for="lastName" class="form-label">Apellido:</label>
-						<input 
-                            type="text" 
-                            id="lastName" 
-                            name="lastName" 
-                            class="form-control <%= (locals.errors && errors.lastName) ? 'is-invalid' : null %>"
-                            value="<%= locals.dataOnHold ? dataOnHold.lastName : null %>">
-                        <% if (locals.errors && errors.lastName) { %>
-                            <small class="text-danger"><%= errors.lastName.msg %></small>
-                        <% } %>  
-                    </div>
-                    <div class="form-group col-12 col-md-6">
-                        <label for="email" class="form-label">Email:</label>
-						<input 
-                            type="text" 
-                            id="email" 
-                            name="email" 
-                            class="form-control <%= (locals.errors && errors.email) ? 'is-invalid' : null %>"
-                            value="<%= locals.dataOnHold ? dataOnHold.email : null %>">
-                        <% if (locals.errors && errors.email) { %>
-                            <small class="text-danger"><%= errors.email.msg %></small>
-                        <% } %>  
-                    </div>
-                    <div class="form-group col-12 col-md-6">
-                        <label for="password" class="form-label">Contraseña:</label>
-						<input type="password" id="password" name="password" class="form-control <%= (locals.errors && errors.password) ? 'is-invalid' : null %>">
-                        <% if (locals.errors && errors.password) { %>
-                            <small class="text-danger"><%= errors.password.msg %></small>
-                        <% } %>  
-                    </div>
-                    <div class="form-group col-12 col-md-6">
-                        <label for="avatar" class="form-label">Imagen de Perfil:</label>
-                        <input type="file" id="avatar" name="avatar" class="form-control">
-                        <% if (locals.errors && errors.avatar) { %>
-                            <small class="text-danger"><%= errors.avatar.msg %></small>
-                        <% } %> 
-                    </div>
-                    <div class="form-group col-12">
-                        <button type="submit" class="btn btn-info btn-sm">Guardar</button>
-                        <button type="reset" class="btn btn-info btn-sm">Limpiar</button>
-                    </div>
+    <div class="container-fluid background-wrapper">
+        <!-- header -->
+        <%- include('partials/headerNavbar') %>
+        <!-- /header -->
+        <div class="container form-wrapper wide-form">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="form-title">Generar una cuenta</h2>
                 </div>
-            </form>
+            </div>
+            <div class="col-12">
+                <form action="/users/register" method="POST" enctype="multipart/form-data">
+                    <div class="row leyes-detail">
+                        <div class="form-group col-12 col-md-6">
+                            <label for="firstName" class="form-label">Nombre:</label>
+                            <input 
+                                type="text" 
+                                id="firstName" 
+                                name="firstName" 
+                                class="form-control <%= (locals.errors && errors.firstName) ? 'is-invalid' : null %>"
+                                value="<%= locals.dataOnHold ? dataOnHold.firstName : null %>">
+                            <% if (locals.errors && errors.firstName) { %>
+                                <small class="text-danger"><%= errors.firstName.msg %></small>
+                            <% } %>                        
+                        </div>
+                        <div class="form-group col-12 col-md-6">
+                            <label for="lastName" class="form-label">Apellido:</label>
+                            <input 
+                                type="text" 
+                                id="lastName" 
+                                name="lastName" 
+                                class="form-control <%= (locals.errors && errors.lastName) ? 'is-invalid' : null %>"
+                                value="<%= locals.dataOnHold ? dataOnHold.lastName : null %>">
+                            <% if (locals.errors && errors.lastName) { %>
+                                <small class="text-danger"><%= errors.lastName.msg %></small>
+                            <% } %>  
+                        </div>
+                        <div class="form-group col-12 col-md-6">
+                            <label for="email" class="form-label">Email:</label>
+                            <input 
+                                type="text" 
+                                id="email" 
+                                name="email" 
+                                class="form-control <%= (locals.errors && errors.email) ? 'is-invalid' : null %>"
+                                value="<%= locals.dataOnHold ? dataOnHold.email : null %>">
+                            <% if (locals.errors && errors.email) { %>
+                                <small class="text-danger"><%= errors.email.msg %></small>
+                            <% } %>  
+                        </div>
+                        <div class="form-group col-12 col-md-6">
+                            <label for="password" class="form-label">Contraseña:</label>
+                            <input type="password" id="password" name="password" class="form-control <%= (locals.errors && errors.password) ? 'is-invalid' : null %>">
+                            <% if (locals.errors && errors.password) { %>
+                                <small class="text-danger"><%= errors.password.msg %></small>
+                            <% } %>  
+                        </div>
+                        <div class="form-group col-12 col-md-6">
+                            <label for="avatar" class="form-label">Imagen de Perfil:</label>
+                            <input type="file" id="avatar" name="avatar" class="form-control">
+                            <% if (locals.errors && errors.avatar) { %>
+                                <small class="text-danger"><%= errors.avatar.msg %></small>
+                            <% } %> 
+                        </div>
+                        <div class="form-group col-12">
+                            <button type="submit" class="btn btn-info btn-sm">Guardar</button>
+                            <button type="reset" class="btn btn-info btn-sm">Limpiar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
