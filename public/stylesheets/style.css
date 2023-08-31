@@ -14,7 +14,7 @@ a {
 }
 
 #main-div, .background-wrapper {
-  height: 50rem;
+  height: 100%;
   background-image: url('/images/main/law-icon.jpg');
   background-size: cover;
   background-position: top center;
