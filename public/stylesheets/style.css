@@ -13,27 +13,45 @@ a {
   color: whitesmoke;
 }
 
-#main-div, .background-wrapper {
-  height: 100%;
-  background-image: url('/images/main/law-icon.jpg');
+.background-wrapper {
+  min-height: 700px;
+  background-image: url('/images/main/law-icon.jpg');  
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  /* background-attachment: scroll; */
   overflow: hidden;
 }
 
 .navbar {
   background-color: transparent;
   margin: 0;
+  padding-top: 1.5rem;
   padding-bottom: 1rem;
   height: 60px;
 }
 
+.navbar .dropdown-menu {
+  background-color: gray;
+  opacity: 0.95;
+}
 
 #navbarNav .nav-item {
   margin: 0 0.5rem;
   font-size: 1.2rem;
+}
+
+a.nav-link:hover {
+  color: darkgoldenrod;
+}
+
+a.dropdown-item {
+  color: whitesmoke;
+}
+
+a.dropdown-item:hover {
+  color: darkgoldenrod;
+  background-color: transparent;
 }
 
 .navbar-brand-custom {
@@ -46,10 +64,6 @@ a {
   font-size: 1.25rem;
   line-height: inherit;
   white-space: nowrap
-}
-
-.background-wrapper {
-  min-height: 500px;
 }
 
 .background-wrapper .card {
