@@ -42,9 +42,6 @@
                                         <div class="info">
                                             <div class="product-details">
                                                 <div class="row justify-content-md-center">
-                                                    <div class="col-md-3">
-                                                        <img class="img-fluid mx-auto d-block image" src="img/product.png">
-                                                    </div>
                                                     <div class="col-md-4 product-detail">
                                                         <h5>Product</h5>
                                                         <div class="product-info">
@@ -96,7 +93,7 @@
                                 <h3 class="title">Buyer Details</h3>
                                 <div class="row">
                                     <div class="form-group col">
-                                        <input id="form-checkout__cardholderEmail" name="cardholderEmail" type="email" class="form-control"/>
+                                        <input id="form-checkout__cardholderEmail" name="cardholderEmail" value="<%= locals.loggedUser.email %>" type="email" class="form-control"/>
                                     </div>
                                 </div>
                                 <div class="row">

@@ -45,7 +45,6 @@
           <a class="nav-link" href="/leyes/list">Explorar</a>
         </li> -->
 
-
         <% if (locals.isLogged) { %>
           <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#" id="dropUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,6 +53,8 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/users/profile">Perfil de Usuario</a>
+              <li><hr class="dropdown-divider"></li>
+              <a class="dropdown-item" href="/suscription">Suscripción</a>
               <li><hr class="dropdown-divider"></li>
               <a class="dropdown-item" href="/users/logout">Cerrar Sesión</a>
               <% if (locals.loggedUser.admin == 1) { %>
