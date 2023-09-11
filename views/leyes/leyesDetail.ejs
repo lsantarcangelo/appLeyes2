@@ -7,43 +7,45 @@
 			<!-- header -->
 			<%- include('../partials/headerNavbar') %>
 			<!-- /header -->
-			<div class="container detail-group">
-				<div class="row">
-					<div class="col-12">
+			<div class="container-fluid detail-group">
+				<div class="row justify-content-center">
+					<div class="col-8 col-sm-6 col-lg-4">
 						<h2 class="form-title"><%= leyDetail.entityTypes.name %> - <%= leyDetail.number %> - <%= leyDetail.year %></h2>
 					</div>
 				</div>
-				<div class="col-12">
-					<p>Tipo: <%= leyDetail.entityTypes.name %></p>
-					<p>Número: <%= leyDetail.number %></p>
-					<p>Año: <%= leyDetail.year %></p>
-					<p>Estado: <%= leyDetail.status %></p>
-					<% if (Array.isArray(leyDetail.file)) { %>
-						<% leyDetail.file.forEach(file => { %>
-							<li class="adjuntos"><a href="../../files/leyes/<%= file %>"><%= file %></a></li>
-						<% }) %>
-					<% } else { %>
-							<li class="adjuntos"><a href="../../files/leyes/<%= leyDetail.file %>"><%= leyDetail.file %></a></li>
-					<% } %>
-					<br>
-					<form action="/leyes/edit/<%= leyDetail.id %>" method="GET">
-						<div class="form-group">
-							<button type="button" class="btn btn-info btn-sm" onclick="history.back()">Volver</button> 
+				<div class="row justify-content-center">
+					<div class="col-8 col-sm-6 col-lg-4 light-background">
+						<p>Tipo: <%= leyDetail.entityTypes.name %></p>
+						<p>Número: <%= leyDetail.number %></p>
+						<p>Año: <%= leyDetail.year %></p>
+						<p>Estado: <%= leyDetail.status %></p>
+						<% if (Array.isArray(leyDetail.file)) { %>
+							<% leyDetail.file.forEach(file => { %>
+								<li class="adjuntos"><a href="../../files/leyes/<%= file %>" class="black-link"><%= file %></a></li>
+							<% }) %>
+						<% } else { %>
+								<li class="adjuntos"><a href="../../files/leyes/<%= leyDetail.file %>" class="black-link"><%= leyDetail.file %></a></li>
+						<% } %>
+						<br>
+						<form action="/leyes/edit/<%= leyDetail.id %>" method="GET">
+							<div class="form-group">
+								<button type="button" class="btn btn-info btn-sm" onclick="history.back()">Volver</button> 
+								<% if (locals.isLogged) { %>
+									<% if (locals.loggedUser.admin == 1) { %>
+										<button type="submit" class="btn btn-info btn-sm edit-button">Editar</button>
+									<% } %>
+								<% } %> 
+							</div>
+						</form>
+						<form action="/leyes/delete/<%= leyDetail.id%>" method="POST">
 							<% if (locals.isLogged) { %>
 								<% if (locals.loggedUser.admin == 1) { %>
-									<button type="submit" class="btn btn-info btn-sm edit-button">Editar</button>
+									<button type="submit" class="btn btn-info btn-sm edit-button">Eliminar</button>
 								<% } %>
 							<% } %> 
-						</div>
-					</form>
-					<form action="/leyes/delete/<%= leyDetail.id%>" method="POST">
-						<% if (locals.isLogged) { %>
-							<% if (locals.loggedUser.admin == 1) { %>
-								<button type="submit" class="btn btn-info btn-sm edit-button">Eliminar</button>
-							<% } %>
-						<% } %> 
-					</form>
-				</div>	
+						</form>
+					</div>
+				</div>
 			</div>
 		</div>
 		<!-- footer -->

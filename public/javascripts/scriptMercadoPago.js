@@ -135,7 +135,7 @@ function loadCardForm() {
                         alert(errorMessage);
                     });
                 }
-
+                console.log(token);
                 return token;
             },
             onValidityChange: (error, field) => {

@@ -101,15 +101,27 @@ a.dropdown-item:hover {
   background: transparent;
 }
 
-.leyesList {
-  width: 300px;
-  min-height: 400px;
-  margin: 0 auto;
-  padding-top: 15px;
+.table-wrapper {
+  background-color: lightgray;
+  opacity: 0.95;
+  border: 2px solid lightgray;
+  border-radius: 5px;
+}
+
+.black-link {
+  color: darkgoldenrod;
+}
+
+.light-background {
+  padding-top: 1rem;
+  background-color: lightgray;
+  opacity: 0.95;
+  border: 2px solid lightgray;
+  border-radius: 5px;
 }
 
 .detail-group {
-  margin-top: 2rem;
+  margin-top: 5rem;
 }
 
 .detail-group h2 {
