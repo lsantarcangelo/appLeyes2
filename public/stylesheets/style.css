@@ -74,9 +74,17 @@ a.dropdown-item:hover {
   margin: 2rem;
 }
 
-.form-wrapper {
+.tittle-wrapper {
   margin-top: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  width: 30rem;
+}
+
+.form-wrapper {
+
   padding: 1rem 4rem;
+  padding-top: 2rem;
   width: 30rem;
   background-color: lightgray;
   opacity: 0.95;

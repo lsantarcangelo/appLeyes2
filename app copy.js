@@ -14,7 +14,6 @@ const usersRouter = require('./routes/users');
 const leyesRouter = require('./routes/leyesRouter');
 const doctrinasRouter = require('./routes/doctrinasRouter');
 const escritosRouter = require('./routes/escritosRouter');
-const mpApiRouter = require('./routes/mpApiRouter');
 
 var app = express();
 
@@ -48,13 +47,64 @@ app.use('/users', usersRouter);
 app.use('/leyes', leyesRouter);
 app.use('/doctrinas', doctrinasRouter);
 app.use('/escritos', escritosRouter);
-app.use('/api', mpApiRouter);
 
 // Rutas Mercadopago
 app.get("/suscription", function (req, res) {
   res.status(200).render("../views/paymentForm.ejs", { mercadoPagoPublicKey });
+}); 
+
+app.post("/process_payment", (req, res) => {
+  const { body } = req;
+  const { payer } = body;
+  const paymentData = {
+    transaction_amount: Number(body.transactionAmount),
+    token: body.token,
+    description: body.description,
+    installments: Number(body.installments),
+    payment_method_id: body.paymentMethodId,
+    issuer_id: body.issuerId,
+    payer: {
+      email: payer.email,
+      identification: {
+        type: payer.identification.docType,
+        number: payer.identification.docNumber
+      }
+    }
+  };
+
+  mercadopago.payment.save(paymentData)
+    .then(function(response) {
+      const { response: data } = response;
+
+      res.status(201).json({
+        detail: data.status_detail,
+        status: data.status,
+        id: data.id
+      });
+    })
+    .catch(function(error) {
+      console.log(error);
+      const { errorMessage, errorStatus }  = validateError(error);
+      res.status(errorStatus).json({ error_message: errorMessage });
+    });
 });
 
+
+// Errores Mercadopago
+function validateError(error) {
+  let errorMessage = 'Unknown error cause';
+  let errorStatus = 400;
+
+  if(error.cause) {
+    const sdkErrorMessage = error.cause[0].description;
+    errorMessage = sdkErrorMessage || errorMessage;
+
+    const sdkErrorStatus = error.status;
+    errorStatus = sdkErrorStatus || errorStatus;
+  }
+
+  return { errorMessage, errorStatus };
+}
 
 
 // error handler

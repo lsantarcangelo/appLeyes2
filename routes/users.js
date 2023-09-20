@@ -5,7 +5,6 @@ const usersController = require('../controllers/usersController');
 const authMiddleware = require('../middlewares/authMiddleware');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const { check } = require('express-validator');
-const mercadopago = require('mercadopago');
 
 const validations = [
     check('firstName').notEmpty().withMessage('Debe ingresar su nombre'),

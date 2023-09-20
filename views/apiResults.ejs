@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Head -->
+<%- include('partials/head', {title: 'Api Results'}) %>
+	<body>
+		<div class="container-fluid background-wrapper">
+			<!-- header -->
+			<%- include('partials/headerNavbar') %>
+			<!-- /header -->
+			<div id="user-card" class="card">
+				<div class="card-body">
+					<% payMethods.forEach(element => { %>
+						<p>
+							<%= element.id %>
+						</p>
+					<% }) %>
+					<p>
+						<%= suscription.init_point %>
+					</p>
+				</div>
+			</div>
+		</div>
+		<!-- footer -->
+		<%- include('partials/footer') %>
+		<!-- /footer -->
+  </body>
+</html>
