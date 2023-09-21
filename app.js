@@ -50,12 +50,6 @@ app.use('/doctrinas', doctrinasRouter);
 app.use('/escritos', escritosRouter);
 app.use('/api', mpApiRouter);
 
-// Rutas Mercadopago
-app.get("/suscription", function (req, res) {
-  res.status(200).render("../views/paymentForm.ejs", { mercadoPagoPublicKey });
-});
-
-
 
 // error handler
 app.use(function(err, req, res, next) {
