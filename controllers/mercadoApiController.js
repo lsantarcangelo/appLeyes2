@@ -1,16 +1,6 @@
 const fetch = require('node-fetch');
 
-const mpApiController = {
-    paymentMethods: async (req, res) => {
-        const url = "https://api.mercadopago.com/v1/payment_methods";
-        let suscription = {};
-        let payMethods = await fetch(url, {
-            headers: {
-                Authorization: 'Bearer TEST-20262500384708-092009-017cc708f56800470a7b9c16685c9b86-1479499574'
-            }
-        }).then(response => response.json());
-        res.render('../views/apiResults.ejs', {payMethods, suscription});
-    },
+const mercadoApiController = {
     suscription: (req, res) => {
         res.render('../views/suscriptionForm.ejs')
     },
@@ -25,30 +15,29 @@ const mpApiController = {
                 currency_id: "ARS"
             },
             back_url: "https://wwww.google.com",
-            payer_email: "test_user_38317041@testuser.com"
-        };
-        const payMethods = [];
-        const suscription = await fetch( url, body, {
+            payer_email: 'test_user_1841764809@testuser.com'
+        };        
+        const suscription = await fetch( url, {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: 'Bearer TEST-20262500384708-092009-017cc708f56800470a7b9c16685c9b86-1479499574'
-            }
+            },
+            body: JSON.stringify(body)
         }).then(response => response.json());
-        setTimeout( 
-            function() {console.log(suscription.init_point)}, 5000
-        ); 
-        res.render('../views/apiResults.ejs', {suscription, payMethods});
+        console.log(suscription);
+        res.redirect(suscription.init_point);                
     },
     suscriptionStatus: async (req, res) => {
-        const url = "https://api.mercadopago.com/preapproval/2c9380848ab07174018ab81f9d2a0499";
-        let payMethods = [];
+        const url = "https://api.mercadopago.com/preapproval/2c9380848acb749a018ad73607c207dd";
         let suscription = await fetch(url, {
             headers: {
                 Authorization: 'Bearer TEST-20262500384708-092009-017cc708f56800470a7b9c16685c9b86-1479499574'
             }
         }).then(response => response.json());
-        res.render('../views/apiResults.ejs', {payMethods, suscription});
+        console.log(suscription);
+        res.render('../views/apiResults.ejs', {suscription});
     }  
 }
 
-module.exports = mpApiController;
+module.exports = mercadoApiController;

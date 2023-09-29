@@ -16,5 +16,14 @@
   "password": "$2a$10$UXjpw64fdLOItuixQJoxGOZjzjwo5CsHZizPRvxPwPSZXW1mdUuJy",
   "avatar": "leandro.png1692971391630 - .jpeg",
   "admin": 1
+ },
+ {
+  "id": 4,
+  "firstName": "Pedro",
+  "lastName": "Gomez",
+  "email": "pedro.gomez@gmail.com",
+  "password": "$2a$10$rPiRiM8wWDheTLb70Sf64e995pIW4M4ULcPqoOqgoTeUNc5b.AXv6",
+  "avatar": "default-avatar1695658286516 - .png",
+  "admin": 0
  }
 ]

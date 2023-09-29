@@ -9,16 +9,12 @@
 			<!-- /header -->
 			<div id="user-card" class="card">
 				<div class="card-body">
-					<% if (payMethods) { %>
-						<% payMethods.forEach(element => { %>
-							<p>
-								<%= element.id %>
-							</p>
-						<% }) %>					 
-					<% } %>
 					<p>
-						<%= suscription.init_point %>
-						<%= suscription.id %>
+						<p>Id Suscripcion: <span><%= suscription.id %></span></p>
+						<p>Servicio: <span><%= suscription.reason %></span></p>
+						<p>Payer id: <span><%= suscription.payer_id %></span></p>
+						<p>Payer Email: <span><%= suscription.payer_email %></span></p>
+						<p>Estado: <span><%= suscription.status %></span></p>
 					</p>
 				</div>
 			</div>
