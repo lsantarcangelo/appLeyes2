@@ -37,7 +37,7 @@ const storage = multer.diskStorage({
     },
     filename: (req, file, cb) => {
         const fileNameNoExtension = path.basename(file.originalname, path.extname(file.originalname));
-        const newFileName = fileNameNoExtension + Date.now() + ' - ' + path.extname(file.originalname);
+        const newFileName = fileNameNoExtension + Date.now() + path.extname(file.originalname);
         cb(null, newFileName);
     }
 });
@@ -59,38 +59,5 @@ router.get('/profile/', authMiddleware, usersController.profile);
 
 //Logout
 router.get('/logout', usersController.logout);
-
-// Ruta para iniciar el proceso de suscripción
-/* router.get('/suscripcion', (req, res) => {
-    const preference = {
-      items: [
-        {
-          title: 'Suscripción mensual',
-          unit_price: 100, // Precio de la suscripción en centavos
-          quantity: 1,
-        },
-      ],
-    };
-    mercadopago.preferences.create(preference)
-      .then(response => {
-        const init_point = response.body.init_point;
-        // Redirigir al usuario a la página de pago de Mercado Pago
-        res.redirect(init_point);
-      })
-      .catch(error => {
-        console.error('Error al crear preferencia:', error);
-        res.send('Error al procesar la suscripción.');
-      });
-});
-
-// Ruta para recibir notificaciones de pago
-router.post('/notificaciones', (req, res) => {
-    // Procesar la notificación y confirmar el estado del pago
-    // Aquí puedes actualizar la suscripción en tu base de datos, enviar confirmaciones por correo, etc.
-    // Enviar una respuesta exitosa a Mercado Pago
-    res.status(200).send('Notificación recibida');
-}); */
-  
-
 
 module.exports = router;

@@ -12,6 +12,7 @@
           <a class="nav-link inactive" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Leyes</a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="/leyes/search">Buscar Ley</a>
+            <hr class="dropdown-divider">
             <% if (locals.isLogged) { %>
               <% if (locals.loggedUser.admin == 1) { %>
                 <a class="dropdown-item" href="/leyes/create">Cargar Ley</a>
@@ -23,6 +24,7 @@
           <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Doctrinas</a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="/doctrinas/search">Buscar Doctrina</a>
+            <hr class="dropdown-divider">
             <% if (locals.isLogged) { %>
               <% if (locals.loggedUser.admin == 1) { %>
                 <a class="dropdown-item" href="/doctrinas/create">Cargar Doctrina</a>
@@ -34,6 +36,7 @@
           <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Escritos</a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="/escritos/search">Buscar Escrito</a>
+            <hr class="dropdown-divider">
             <% if (locals.isLogged) { %>
               <% if (locals.loggedUser.admin == 1) { %>
               <a class="dropdown-item" href="/escritos/create">Cargar Escrito</a>
@@ -48,8 +51,8 @@
         <% if (locals.isLogged) { %>
           <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#" id="dropUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="/images/avatars/<%= locals.loggedUser.avatar %>" width="40" style="border-radius: 100%;">
-              Hi <%= locals.loggedUser.firstName %> 
+              <img src="/images/users/<%= locals.loggedUser.avatar %>" width="30" style="border-radius: 100%;">
+              <%= locals.loggedUser.first_name %> 
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/users/profile">Perfil de Usuario</a>

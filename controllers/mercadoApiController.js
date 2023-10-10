@@ -6,6 +6,7 @@ const mercadoApiController = {
     },
     createSuscriptionLink: async (req, res) => {
         const url = "https://api.mercadopago.com/preapproval";
+        console.log(req.body); 
         const body = {
             reason: "Suscripcion a LeyesApp",
             auto_recurring: {
@@ -16,7 +17,7 @@ const mercadoApiController = {
             },
             back_url: "https://wwww.google.com",
             payer_email: 'test_user_1841764809@testuser.com'
-        };        
+        };       
         const suscription = await fetch( url, {
             method: 'POST',
             headers: {

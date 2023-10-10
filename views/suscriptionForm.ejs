@@ -14,16 +14,27 @@
                 </div>
             </div>
             <div class="col-12">
-                <form action="/api/create-suscription" method="GET" enctype="multipart/form-data">
+                <form action="/api/suscription" method="POST" enctype="multipart/form-data">
                     <div class="row leyes-detail">
                         <div class="form-group col-12 col-md-6">
-                            <label for="email" class="form-label">Email:</label>
+                            <label for="frequency">Frecuencia:</label>
                             <input 
                                 type="text" 
-                                id="email" 
-                                name="email" 
+                                id="frequency" 
+                                value="Mensual"
+                                name="frequency" 
                                 class="form-control"
-                            >
+                                readonly
+                            ><br>
+                            <label for="transaction_amount">Monto:</label>
+                            <input 
+                                type="number" 
+                                value="10" 
+                                id="transaction_amount" 
+                                name="transaction_amount" 
+                                class="form-control"
+                                readonly
+                            ><br>
                         </div>
                         <div class="form-group col-12">
                             <button type="submit" class="btn btn-info btn-sm">Enviar</button>
