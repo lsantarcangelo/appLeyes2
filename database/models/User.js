@@ -38,11 +38,5 @@ module.exports = (sequelize, dataTypes) => {
 
     const User = sequelize.define(alias, cols, config);
 
-    User.associate = function(models) {
-        User.hasOne(models.Suscription, {
-            as: 'suscriptions'
-        })
-    };
-
     return User;
 }

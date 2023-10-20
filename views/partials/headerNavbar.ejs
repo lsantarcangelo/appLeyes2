@@ -51,13 +51,13 @@
         <% if (locals.isLogged) { %>
           <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#" id="dropUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="/images/users/<%= locals.loggedUser.avatar %>" width="30" style="border-radius: 100%;">
+              <img src="/images/users/<%= locals.loggedUser.avatar %>" width="25px" height="25" style="border-radius: 100%;">
               <%= locals.loggedUser.first_name %> 
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/users/profile">Perfil de Usuario</a>
               <li><hr class="dropdown-divider"></li>
-              <a class="dropdown-item" href="/api/suscription">Suscripción</a>
+              <a class="dropdown-item" href="/api/suscription">Suscripciones</a>
               <li><hr class="dropdown-divider"></li>
               <a class="dropdown-item" href="/users/logout">Cerrar Sesión</a>
               <% if (locals.loggedUser.admin == 1) { %>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Head -->
-<%- include('partials/head', {title: 'Register'}) %>
+<%- include('partials/head', {title: 'Suscription'}) %>
 <body>
     <div class="container-fluid background-wrapper">
         <!-- header -->
@@ -10,42 +10,33 @@
         <div class="container form-wrapper wide-form">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="form-title">Generar una Suscripción</h2>
+                    <h2 class="form-title">Suscripciones</h2>
                 </div>
-            </div>
-            <div class="col-12">
-                <form action="/api/suscription" method="POST" enctype="multipart/form-data">
-                    <div class="row leyes-detail">
+                <div class="col-12">
+                    <form action="/api/suscription" method="POST">
                         <div class="form-group col-12 col-md-6">
-                            <label for="frequency">Frecuencia:</label>
-                            <input 
-                                type="text" 
-                                id="frequency" 
-                                value="Mensual"
-                                name="frequency" 
-                                class="form-control"
-                                readonly
-                            ><br>
-                            <label for="transaction_amount">Monto:</label>
-                            <input 
-                                type="number" 
-                                value="10" 
-                                id="transaction_amount" 
-                                name="transaction_amount" 
-                                class="form-control"
-                                readonly
-                            ><br>
+                            <label for="frequency" class="form-label">Frecuencia:</label>
+                            <input type="text" id="frequency" name="frequency" class="form-control" value="Mensual" readonly>
+                        </div>
+                        <div class="form-group col-12 col-md-6">
+                            <label for="transactionAmount" class="form-label">Monto:</label>
+                            <input type="text" id="transactionAmount" name="transactionAmount" class="form-control" value="$10" readonly>
+                        </div>
+                        <div class="form-group col-12 col-md-6">
+                            <label for="mercadoEmail" class="form-label">Mail de Mercado Pago:</label>
+                            <input type="email" id="mercadoEmail" name="mercadoEmail" class="form-control">
                         </div>
                         <div class="form-group col-12">
                             <button type="submit" class="btn btn-info btn-sm">Enviar</button>
                             <button type="reset" class="btn btn-info btn-sm">Limpiar</button>
+                            <button type="button" class="btn btn-info btn-sm" onclick="history.back()">Volver</button>
+                            <a class="btn btn-info btn-sm" href="/api/status">Consultar Estado</a>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-
     <!-- footer -->
     <%- include('partials/footer') %>
     <!-- /footer -->

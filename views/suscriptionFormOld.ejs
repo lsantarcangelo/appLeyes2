@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Head -->
+<%- include('partials/head', {title: 'Register'}) %>
+<body>
+    <div class="container-fluid background-wrapper">
+        <!-- header -->
+        <%- include('partials/headerNavbar') %>
+        <!-- /header -->
+        <div class="container form-wrapper wide-form">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="form-title">Suscripciones</h2>
+                </div>
+            </div>
+            <div class="col-12">
+                <form action="/api/suscription" method="POST" enctype="multipart/form-data">
+                    <div class="row leyes-detail">
+                        <div class="form-group col-12 col-md-6">
+                            <label for="frequency">Frecuencia:</label>
+                            <input 
+                                type="text" 
+                                id="frequency" 
+                                value="Mensual"
+                                name="frequency" 
+                                class="form-control"
+                                readonly
+                            ><br>
+                            <label for="transactionAmount">Monto:</label>
+                            <input 
+                                type="number" 
+                                value="10" 
+                                id="transactionAmount" 
+                                name="transactionAmount" 
+                                class="form-control"
+                                readonly
+                            ><br>
+                            <label for="mercadoEmail">Mail de MercadoPago:</label>
+                            <input 
+                                type="email" 
+                                id="mercadoEmail" 
+                                name="mercadoEmail" 
+                                class="form-control"
+                            ><br>
+                        </div>
+                        <div class="form-group col-12">
+                            <button type="submit" class="btn btn-info btn-sm">Suscribirse</button>
+                            <button type="reset" class="btn btn-info btn-sm">Limpiar</button>
+                            <a class="btn btn-info btn-sm" href="/api/status">Estado</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <%- include('partials/footer') %>
+    <!-- /footer -->
+</body>
+</html>

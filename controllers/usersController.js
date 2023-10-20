@@ -70,8 +70,8 @@ const usersController = {
         })
         res.redirect('/users/login')
     },
-    profile: function(req, res) {
-        res.render('../views/userProfile.ejs', {user: req.session.loggedUser})
+    profile: async function(req, res) {
+        res.render('../views/userProfile.ejs', {user: req.session.loggedUser});
     }
 }
 
