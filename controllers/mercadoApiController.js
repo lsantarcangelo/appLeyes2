@@ -26,7 +26,7 @@ const mercadoApiController = {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    Authorization: 'Bearer TEST-20262500384708-092009-017cc708f56800470a7b9c16685c9b86-1479499574'
+                    Authorization: `Bearer ${process.env.ACCESS_TOKEN}`
                 },
                 body: JSON.stringify(body)
             }).then(response => response.json());
@@ -55,12 +55,12 @@ const mercadoApiController = {
         const localSuscription = await db.Suscription.findOne({where: {user_id: loggedUser.id}});
         if (localSuscription) {
             const preId = localSuscription.dataValues.suscription_id; 
-            console.log(preId);
+            console.log(process.env.ACCESS_TOKEN);
             const url = `https://api.mercadopago.com/preapproval/${preId}`;
             console.log(url);
             let suscription = await fetch(url, {
                 headers: {
-                    Authorization: 'Bearer TEST-20262500384708-092009-017cc708f56800470a7b9c16685c9b86-1479499574'
+                    Authorization: `Bearer ${process.env.ACCESS_TOKEN}`
                 }
             }).then(response => response.json());
             console.log(suscription);
