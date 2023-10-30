@@ -62,7 +62,9 @@ const mercadoApiController = {
                 headers: {
                     Authorization: `Bearer ${process.env.ACCESS_TOKEN}`
                 }
-            }).then(response => response.json());
+            })
+            .then(response => response.json())
+            .catch((error)=>{console.log(error)});
             console.log(suscription);
             res.render('../views/apiResults.ejs', {suscription});
         } else {
