@@ -39,6 +39,10 @@ module.exports = (sequelize, dataTypes) => {
             as: 'entityTypes',
             foreignKey: 'type_id'
         });
+        Ley.hasMany(models.LeyAnexo, {
+            as: 'anexos',
+            foreignKey: 'ley_id'
+        });
     }
 
     return Ley;

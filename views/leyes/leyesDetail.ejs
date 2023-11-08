@@ -24,27 +24,43 @@
 								<li class="adjuntos"><a href="../../files/leyes/<%= file %>" class="black-link"><%= file %></a></li>
 							<% }) %>
 						<% } else { %>
-								<li class="adjuntos"><a href="../../files/leyes/<%= leyDetail.file %>" class="black-link"><%= leyDetail.file %></a></li>
+							<p>Texto Consolidado: <li class="adjuntos"><a href="../../files/leyes/<%= leyDetail.file %>" class="black-link"><%= leyDetail.file %></a></li></p>								
 						<% } %>
 						<br>
-						<form action="/leyes/edit/<%= leyDetail.id %>" method="GET">
-							<div class="form-group">
-								<button type="button" class="btn btn-info btn-sm" onclick="history.back()">Volver</button> 
-								<% if (locals.isLogged) { %>
-									<% if (locals.loggedUser.admin == 1) { %>
-										<button type="submit" class="btn btn-info btn-sm edit-button">Editar</button>
-									<% } %>
-								<% } %> 
-							</div>
-						</form>
-						<form action="/leyes/delete/<%= leyDetail.id%>" method="POST">
+						<p>Anexos:
+							<% if (leyDetail.anexos) { %>
+								<% leyDetail.anexos.forEach(element => { %>
+									<li class="adjuntos"><a href="../../files/leyes/<%= element.file %>" class="black-link"><%= element.file %></a></li>
+								<% }) %>
+							<% } %>
+						</p>
+
+					</div>
+					<form action="/leyes/edit/<%= leyDetail.id %>" method="GET">
+						<div class="form-group">
+							<button type="button" class="btn btn-info btn-sm" onclick="history.back()">Volver</button> 
 							<% if (locals.isLogged) { %>
 								<% if (locals.loggedUser.admin == 1) { %>
-									<button type="submit" class="btn btn-info btn-sm edit-button">Eliminar</button>
+									<button type="submit" class="btn btn-info btn-sm edit-button">Editar</button>
 								<% } %>
-							<% } %> 
-						</form>
-					</div>
+							<% } %>
+							<% if (locals.isLogged) { %>
+								<% if (locals.loggedUser.admin == 1) { %>
+									<a href="/leyes/attachments/<%= leyDetail.id %>" class="btn btn-info btn-sm edit-button">
+										Cargar Anexo
+									</a>
+								<% } %>
+							<% } %>  
+						</div>
+					</form>
+					
+					<form action="/leyes/delete/<%= leyDetail.id%>" method="POST">
+						<% if (locals.isLogged) { %>
+							<% if (locals.loggedUser.admin == 1) { %>
+								<button type="submit" class="btn btn-info btn-sm edit-button">Eliminar</button>
+							<% } %>
+						<% } %> 
+					</form>
 				</div>
 			</div>
 		</div>

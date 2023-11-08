@@ -3,7 +3,7 @@ const db = require('../database/models');
 
 
 const leyesController = {
-    //Creación de registro
+    // Creación de registro
     create: function(req, res) {
         let selectType = db.EntityType.findAll();
         Promise.all([selectType])
@@ -14,7 +14,7 @@ const leyesController = {
         })
     },
 
-    //Almacenado de registro
+    // Almacenado de registro
     store: async function(req, res) {
         console.log(req.body.number);
         await db.Ley.create({
@@ -27,14 +27,14 @@ const leyesController = {
         res.redirect('/leyes/search');
     },
 
-    //Edición de registro
+    // Edición de registro
     edit: async function(req, res) {
         const editingLey = await db.Ley.findByPk(req.params.id, { include: [ { association: 'entityTypes'} ]});
         const types = await db.EntityType.findAll();
         res.render('../views/leyes/leyesEditForm.ejs', {editingLey, types});
     },
 
-    //Actualización de registro
+    // Actualización de registro
     update: async function(req, res) {
         let retrieveLey = db.Ley.findByPk(req.params.id); 
         await db.Ley.update({
@@ -51,24 +51,31 @@ const leyesController = {
 		res.redirect(`/leyes/detail/${req.params.id}/`);
     },
 
-    //Listado de registros
-    list: function(req, res) {
-        db.Ley.findAll({
-            include: [{ association: 'entityTypes' }]
-        })
-            .then(function(leyes) {
-                res.render('../views/leyes/leyesList.ejs', {leyes})
-                console.log(leyes)
-            })
+    // Agregado de Anexos
+    attachments: async function(req, res) {
+        const attachLey = await db.Ley.findByPk(req.params.id, { include: [ { association: 'entityTypes'} ]});
+        const types = await db.EntityType.findAll();
+        res.render('../views/leyes/leyesAttachmentForm.ejs', {attachLey, types});
     },
 
-    //Búsqueda de registros
+    // Guardado de Anexos
+    saveAttachments: async function(req, res) {
+        await db.LeyAnexo.create(
+            {
+                'ley_id': req.params.id,
+                'file': req.file.filename
+            }
+        );
+        res.redirect(`/leyes/detail/${req.params.id}/`);
+    },
+
+    // Búsqueda de registros
     search: async function(req, res) {
         const types = await db.EntityType.findAll();
         res.render('../views/leyes/searchForm.ejs', { types: types });
     },
 
-    //Resultado de la búsqueda
+    // Resultado de la búsqueda
     searchResult: async function(req, res) {
         const { type, number, year, status } = req.query;
         try {
@@ -90,9 +97,7 @@ const leyesController = {
               queryOptions.where.status = status;
             }
             // Find the Leyes that match the filter criteria
-            console.log(queryOptions);
-            const filteredData = await db.Ley.findAll(queryOptions)
-
+            const filteredData = await db.Ley.findAll(queryOptions);
             res.render('../views/leyes/searchResult.ejs', { data: filteredData });
         } catch (err) {
                 console.error('Error during search:', err);
@@ -100,9 +105,9 @@ const leyesController = {
             }
     },
 
-    //Detalle del registro
+    // Detalle del registro
     detail: function(req, res) {
-        db.Ley.findByPk(req.params.id, {include: [{ association: 'entityTypes' }]})
+        db.Ley.findByPk(req.params.id, {include: [{ association: 'entityTypes' }, { association: 'anexos' }]})
             .then((leyDetail)=> {
                 res.render('../views/leyes/leyesDetail.ejs', { leyDetail })
             });

@@ -10,15 +10,12 @@ const storage = multer.diskStorage({
         cb(null, path.join(__dirname, '../public/files/leyes'));
     },
     filename: (req, files, cb) => {
-        //const fileNameNoExtension = path.basename(file.originalname, path.extname(file.originalname));
         const newFileName = files.originalname;
         cb(null, newFileName);
     }
 });
 const upload = multer({ storage });
 
-//Listar Leyes //
-router.get('/list', leyesController.list);
 
 //Cargar una Ley //
 router.get('/create', leyesController.create);
@@ -35,7 +32,11 @@ router.get('/detail/:id/', leyesController.detail)
 router.get('/edit/:id/', leyesController.edit);
 router.post('/edit/:id/', leyesController.update);
 
-// Eliminar una Ley //
+// Cargar Adjuntos //
+router.get('/attachments/:id', leyesController.attachments);
+router.post('/attachments/:id', upload.single('attachment'), leyesController.saveAttachments);
+
+// Eliminar una Ley // 
 router.post('/delete/:id', leyesController.delete);
 
 module.exports = router
