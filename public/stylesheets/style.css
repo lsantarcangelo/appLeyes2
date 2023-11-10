@@ -75,14 +75,13 @@ a.dropdown-item:hover {
 }
 
 .tittle-wrapper {
-  margin-top: 3rem;
+  margin-top: 10px;
   padding-top: 1rem;
   padding-bottom: 0.5rem;
   width: 30rem;
 }
 
 .form-wrapper {
-
   padding: 1rem 4rem;
   padding-top: 2rem;
   width: 30rem;
@@ -96,9 +95,9 @@ a.dropdown-item:hover {
   font: 13px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-.form-title {
+/* .form-title {
   font-size: 1.6rem;
-}
+} */
 
 .wide-form {
   width: 40rem;
@@ -129,11 +128,22 @@ a.dropdown-item:hover {
 }
 
 .detail-group {
-  margin-top: 5rem;
+  margin-top: 10px;
+  padding: 1rem 4rem;
 }
 
 .detail-group h2 {
   font-size: 1.4rem;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.button-group form:nth-child(2) {
+  margin-left: 4px;
 }
 
 li.adjuntos {
