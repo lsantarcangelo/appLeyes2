@@ -7,75 +7,76 @@
         <!-- header -->
         <%- include('../partials/headerNavbar') %>
         <!-- /header -->
-        <div class="container tittle-wrapper">
-            <h2>Formulario de Edición de Leyes</h2>
-        </div>
-        <div class="container form-wrapper">
-            <div class="row">
-                <div class="col-12">
-                    <form action="/leyes/edit/<%= editingLey.id %>" method="POST" enctype="multipart/form-data">
-                        <div class="row leyes-detail">
-                            <div class="form-group col-12 col-md-6">
-                                <label for="number" class="form-label">Número:</label>
-                                <input type="text" id="number" name="number" class="form-control" value="<%= editingLey.number %>">
-                            </div>
-                            <div class="form-group col-12 col-md-6">
-                                <label for="year" class="form-label">Año:</label>
-                                <input type="text" id="year" name="year" class="form-control" value="<%= editingLey.year %>">
-                            </div>
-                            <div class="form-group col-12 col-md-6">
-                                <label for="type" class="form-label">Tipo de Norma:</label>
-                                <select name="type" id="type" class="form-control">
-                                    <% for( let i = 0; i < types.length; i++ ) { %>
-                                        <% if (types[i].id == editingLey.type_id) { %>
-                                            <option value="<%= types[i].id %>" selected>
-                                                <%= types[i].name %> 
-                                            </option>
-                                        <% } else { %>
-                                        <option value="<%= types[i].id %>">
-                                            <%= types[i].name %> 
-                                        </option>
-                                        <% } %>
-                                    <% } %>
-                                </select>
-                            </div>
-                            <div class="form-group col-12 col-md-6">
-                                <label for="status" class="form-label">Estado:</label>
-                                <select name="status" id="status" class="form-control">
-                                    <% let statusOptions = [
-                                        { id: 'vigente',
-                                        name: 'Vigente' },
-                                        { id: 'no-vigente',
-                                        name: 'No Vigente' }
-                                    ] %>
-                                    <% for( let i = 0; i < statusOptions.length; i++ ) { %>
-                                        <% if (statusOptions[i].id == editingLey.status) { %>
-                                            <option value="<%= statusOptions[i].id %>" selected>
-                                                <%= statusOptions[i].name %> 
-                                            </option>
-                                        <% } else { %>
-                                        <option value="<%= statusOptions[i].id %>">
-                                            <%= statusOptions[i].name %> 
-                                        </option>
-                                        <% } %>
-                                    <% } %>
-                                </select>
-                            </div>
-                            <div class="form-group col-12">
-                                <label for="norm" class="form-label">Adjuntar Norma</label>
-                                <input type="file" class="form-control" name="norm" value="<%= editingLey.file %>">
-                            </div>
-                            <div class="form-group col-12">
-                                <button type="submit" class="btn btn-info btn-sm">Guardar</button>
-                                <button type="button" class="btn btn-info btn-sm" onclick="history.back()">Cancelar</button>
-                            </div>
+        <div class="row">
+            <div class="container search-group col-lg-6 col-md-8">
+                <h2 class="tittle-wrapper">Formulario de Edición de Leyes</h2>
+                <div class="container form-wrapper">
+                    <div class="row">
+                        <div class="col-12">
+                            <form action="/leyes/edit/<%= editingLey.id %>" method="POST" enctype="multipart/form-data">
+                                <div class="row leyes-detail">
+                                    <div class="form-group col-12">
+                                        <label for="number" class="form-label">Número:</label>
+                                        <input type="text" id="number" name="number" class="form-control" value="<%= editingLey.number %>">
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label for="year" class="form-label">Año:</label>
+                                        <input type="text" id="year" name="year" class="form-control" value="<%= editingLey.year %>">
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label for="type" class="form-label">Tipo de Norma:</label>
+                                        <select name="type" id="type" class="form-control">
+                                            <% for( let i = 0; i < types.length; i++ ) { %>
+                                                <% if (types[i].id == editingLey.type_id) { %>
+                                                    <option value="<%= types[i].id %>" selected>
+                                                        <%= types[i].name %> 
+                                                    </option>
+                                                <% } else { %>
+                                                <option value="<%= types[i].id %>">
+                                                    <%= types[i].name %> 
+                                                </option>
+                                                <% } %>
+                                            <% } %>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label for="status" class="form-label">Estado:</label>
+                                        <select name="status" id="status" class="form-control">
+                                            <% let statusOptions = [
+                                                { id: 'vigente',
+                                                name: 'Vigente' },
+                                                { id: 'no-vigente',
+                                                name: 'No Vigente' }
+                                            ] %>
+                                            <% for( let i = 0; i < statusOptions.length; i++ ) { %>
+                                                <% if (statusOptions[i].id == editingLey.status) { %>
+                                                    <option value="<%= statusOptions[i].id %>" selected>
+                                                        <%= statusOptions[i].name %> 
+                                                    </option>
+                                                <% } else { %>
+                                                <option value="<%= statusOptions[i].id %>">
+                                                    <%= statusOptions[i].name %> 
+                                                </option>
+                                                <% } %>
+                                            <% } %>
+                                        </select>    
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label for="norm" class="form-label">Adjuntar Norma</label>
+                                        <input type="file" class="form-control" name="norm" value="<%= editingLey.file %>">
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <button type="submit" class="btn btn-info btn-sm">Guardar</button>
+                                        <button type="button" class="btn btn-info btn-sm" onclick="history.back()">Cancelar</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>            
                 </div>
-            </div>            
-        </div>
+            </div>
+        </div>        
     </div>
-
     <!-- footer -->
     <%- include('../partials/footer') %>
     <!-- /footer -->

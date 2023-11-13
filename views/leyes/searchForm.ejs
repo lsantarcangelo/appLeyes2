@@ -7,41 +7,43 @@
 			<!-- header -->
 			<%- include('../partials/headerNavbar') %>
 			<!-- /header -->
-			<div class="container tittle-wrapper">
-				<h2>Búsqueda de Leyes</h2>
-			</div>
-			<div class="container form-wrapper">
-				<div class="row">
-					<div class="col-12">
-						<form action="/leyes/search/result" method="GET">
-							<div class="row">
-								<div class="form-group col-12">
-									<label for="type" class="form-label">Tipo de Norma:</label>
-									<select name="type" id="type" class="form-control">
-										<option value="">Seleccione el tipo</option>
-										<% for( let i = 0; i < types.length; i++ ) { %>
-											<option value="<%= types[i].id %>"><%= types[i].name %></option>
-										<% } %> 
-									</select>            
-								</div>
-								<div class="form-group col-12">
-									<label for="number" class="form-label">Número:</label>
-									<input type="text" id="number" name="number" class="form-control">              
-								</div>
-								<div class="form-group col-12">
-									<label for="year" class="form-label">Año:</label>
-									<input type="text" id="year" name="year" class="form-control">              
-								</div>
-								<div class="form-group col-12">
-									<label for="status" class="form-label">Estado:</label>
-									<input type="text" id="status" name="status" class="form-control">              
-								</div>
-								<div class="form-group col-12">
-									<button type="submit" class="btn btn-info btn-sm">Enviar</button>
-									<button type="reset" class="btn btn-info btn-sm">Limpiar</button>
-								</div>
+			<div class="row">
+				<div class="container search-group col-lg-6 col-md-8">
+					<h2 class="tittle-wrapper">Búsqueda de Leyes</h2>
+					<div class="container form-wrapper">
+						<div class="row">
+							<div class="col-12">
+								<form action="/leyes/search/result" method="GET">
+									<div class="row">
+										<div class="form-group col-12">
+											<label for="type" class="form-label">Tipo de Norma:</label>
+											<select name="type" id="type" class="form-control">
+												<option value="">Seleccione el tipo</option>
+												<% for( let i = 0; i < types.length; i++ ) { %>
+													<option value="<%= types[i].id %>"><%= types[i].name %></option>
+												<% } %> 
+											</select>            
+										</div>
+										<div class="form-group col-12">
+											<label for="number" class="form-label">Número:</label>
+											<input type="text" id="number" name="number" class="form-control">              
+										</div>
+										<div class="form-group col-12">
+											<label for="year" class="form-label">Año:</label>
+											<input type="text" id="year" name="year" class="form-control">              
+										</div>
+										<div class="form-group col-12">
+											<label for="status" class="form-label">Estado:</label>
+											<input type="text" id="status" name="status" class="form-control">              
+										</div>
+										<div class="form-group col-12">
+											<button type="submit" class="btn btn-info btn-sm">Enviar</button>
+											<button type="reset" class="btn btn-info btn-sm">Limpiar</button>
+										</div>
+									</div>
+								</form>
 							</div>
-						</form>
+						</div>
 					</div>
 				</div>
 			</div>
