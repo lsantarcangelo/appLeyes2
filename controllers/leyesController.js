@@ -22,7 +22,7 @@ const leyesController = {
                 'number': req.body.number,
                 'year': req.body.year,
                 'status': req.body.status,
-                'file': req.file.filename
+                'file': (req.file != undefined) ? req.file.filename : 'default-file'
             }) 
         res.redirect('/leyes/search');
     },

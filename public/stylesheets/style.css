@@ -94,9 +94,6 @@ a.dropdown-item:hover {
   font: 13px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-/* .form-title {
-  font-size: 1.6rem;
-} */
 
 .wide-form {
   width: 40rem;
@@ -137,7 +134,7 @@ a.dropdown-item:hover {
   margin-top: 20px;
 }
 
-.button-group form:nth-child(2) {
+.edit-button {
   margin-left: 4px;
 }
 

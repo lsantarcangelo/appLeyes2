@@ -35,31 +35,33 @@
 							</div>
 						</div>	
 					</div>
+					<form id="deleteForm" action="/leyes/delete/<%= leyDetail.id%>" method="POST">
+					</form>
 					<div class="button-group">
-						<form action="/leyes/edit/<%= leyDetail.id %>" method="GET">
-							
-								<button type="button" class="btn btn-info btn-sm" onclick="history.back()">Volver</button> 
-								<% if (locals.isLogged) { %>
-									<% if (locals.loggedUser.admin == 1) { %>
-										<button type="submit" class="btn btn-info btn-sm edit-button">Editar</button>
-									<% } %>
-								<% } %>
-								<% if (locals.isLogged) { %>
-									<% if (locals.loggedUser.admin == 1) { %>
-										<a href="/leyes/attachments/<%= leyDetail.id %>" class="btn btn-info btn-sm edit-button">
-											Cargar Anexo
-										</a>
-									<% } %>
-								<% } %>  
-							
-						</form>
-						<form action="/leyes/delete/<%= leyDetail.id%>" method="POST">
-							<% if (locals.isLogged) { %>
-								<% if (locals.loggedUser.admin == 1) { %>
-									<button type="submit" class="btn btn-info btn-sm edit-button">Eliminar</button>
-								<% } %>
-							<% } %> 
-						</form>
+						<!-- Boton para Volver -->
+						<button type="button" class="btn btn-info btn-sm" onclick="history.back()">Volver</button>
+						<!-- Boton de Edicion -->
+						<% if (locals.isLogged) { %>
+							<% if (locals.loggedUser.admin == 1) { %>
+								<a href="/leyes/edit/<%= leyDetail.id %>" class="btn btn-info btn-sm edit-button">
+									Editar
+								</a>
+							<% } %>
+						<% } %>
+						<!-- Boton de Anexo -->
+						<% if (locals.isLogged) { %>
+							<% if (locals.loggedUser.admin == 1) { %>
+								<a href="/leyes/attachments/<%= leyDetail.id %>" class="btn btn-info btn-sm edit-button">
+									Cargar Anexo
+								</a>
+							<% } %>
+						<% } %> 
+						<!-- Boton de Eliminado -->
+						<% if (locals.isLogged) { %>
+							<% if (locals.loggedUser.admin == 1) { %>
+								<button type="submit" form="deleteForm" class="btn btn-info btn-sm edit-button">Eliminar</button>
+							<% } %>
+						<% } %> 
 					</div>
 				</div>
 			</div>
