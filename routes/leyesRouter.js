@@ -30,7 +30,7 @@ router.get('/detail/:id/', leyesController.detail)
 
 // Editar una Ley //
 router.get('/edit/:id/', leyesController.edit);
-router.post('/edit/:id/', leyesController.update);
+router.post('/edit/:id/', upload.single('mainFile'), leyesController.update);
 
 // Cargar Adjuntos //
 router.get('/attachments/:id', leyesController.attachments);

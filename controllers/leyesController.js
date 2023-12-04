@@ -31,24 +31,30 @@ const leyesController = {
     edit: async function(req, res) {
         const editingLey = await db.Ley.findByPk(req.params.id, { include: [ { association: 'entityTypes'} ]});
         const types = await db.EntityType.findAll();
+        console.log(editingLey.file);
+        console.log(editingLey.status);
         res.render('../views/leyes/leyesEditForm.ejs', {editingLey, types});
     },
 
     // Actualización de registro
     update: async function(req, res) {
-        let retrieveLey = db.Ley.findByPk(req.params.id); 
-        await db.Ley.update({
-            'type_id': req.body.type,
-            'number': req.body.number,
-            'year': req.body.year,
-            'status': req.body.status,
-            'file': req.file == undefined ? retrieveLey.file : req.file.filename
-        }, {
-            where: {
-                'id': req.params.id
-            }
-        })
-		res.redirect(`/leyes/detail/${req.params.id}/`);
+        try {
+            await db.Ley.update({
+                'type_id': req.body.type,
+                'number': req.body.number,
+                'year': req.body.year,
+                'status': req.body.status,
+                'file': req.body.file
+            }, {
+                where: {
+                    'id': req.params.id
+                }
+            });
+            // res.redirect(`/leyes/detail/${req.params.id}/`);
+            return res.redirect('/leyes/search');
+        } catch(error) {
+            return res.send(error)
+        }
     },
 
     // Agregado de Anexos
