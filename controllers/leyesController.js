@@ -32,7 +32,6 @@ const leyesController = {
         const editingLey = await db.Ley.findByPk(req.params.id, { include: [ { association: 'entityTypes'} ]});
         const types = await db.EntityType.findAll();
         console.log(editingLey.file);
-        console.log(editingLey.status);
         res.render('../views/leyes/leyesEditForm.ejs', {editingLey, types});
     },
 
@@ -44,13 +43,13 @@ const leyesController = {
                 'number': req.body.number,
                 'year': req.body.year,
                 'status': req.body.status,
-                'file': req.body.file
+                'file': (req.file != undefined) ? req.file.filename : req.body.file
             }, {
                 where: {
                     'id': req.params.id
                 }
             });
-            // res.redirect(`/leyes/detail/${req.params.id}/`);
+         // return res.redirect(`/leyes/detail/${req.params.id}/`);
             return res.redirect('/leyes/search');
         } catch(error) {
             return res.send(error)

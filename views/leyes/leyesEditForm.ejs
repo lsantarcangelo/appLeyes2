@@ -52,12 +52,16 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-12">
-                                    <label for="mainFile" class="form-label">Adjuntar Norma</label>
-                                    <input 
-                                        type="file" 
-                                        class="form-control" 
-                                        name="mainFile" id="mainFile" 
-                                        value="<%= editingLey.file %>">
+                                    <p class="fileLabel">Texto Consolidado:</p>
+                                    <div class="file-block">
+                                        <label for="mainFile" class="btn btn-info btn-sm label-btn">Seleccionar Archivo:</label>
+                                        <input 
+                                            type="file" 
+                                            class="form-control" 
+                                            name="mainFile" id="mainFile" 
+                                            value="<%= editingLey.file %>">
+                                        <p class="fileSelected form-control"><%= editingLey.file %></p>
+                                    </div>
                                 </div>
                             </div>
                         </form>

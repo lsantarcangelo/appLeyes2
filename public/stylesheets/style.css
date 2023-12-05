@@ -138,6 +138,24 @@ a.dropdown-item:hover {
   margin-left: 4px;
 }
 
+#mainFile {
+  display: none;
+}
+
+.file-block {
+  display: flex;
+}
+
+.file-block p {
+  margin: 0 0 8px;
+  padding: 6px 8px 4px;
+
+}
+
+.file-block .label-btn {
+width: fit-content;
+}
+
 li.adjuntos {
   list-style: none;
 }
