@@ -43,6 +43,9 @@
                     <button type="reset" form="loginForm" class="btn btn-info btn-sm">Limpiar</button>
                     <!-- Boton para Volver -->
                     <button type="button" class="btn btn-info btn-sm" onclick="history.back()">Volver</button>
+                    <!-- Sign-in de Google -->
+                    <div class="g-signin2 btn btn-info btn-sm" data-onsuccess="onSignIn"></div>
+                    <a class="btn btn-info btn-sm" href="#" onclick="signOut();">Sign out</a>
                 </div>
             </div>
         </div>        
@@ -50,5 +53,22 @@
     <!-- footer -->
     <%- include('partials/footer') %>
     <!-- /footer -->
+    <!-- scripts de inicio/cerrado de sesion con google -->
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        }
+
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+            console.log('User signed out.');
+            });
+        }
+      </script>
 </body>
 </html>
