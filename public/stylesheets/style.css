@@ -162,11 +162,25 @@ li.adjuntos {
   list-style: none;
 }
 
-#user-card {
-  width: 18rem; 
-  margin: auto; 
-  margin-top: 4rem; 
-  margin-bottom: 1.5rem;
+.api-result-group {
+  margin-top: 10px;
+  padding: 1rem 4rem;
+}
+
+.api-result-wrapper {
+  padding: 1rem 2rem;
+  padding-top: 2rem;
+  background-color: lightgray;
+  opacity: 0.95;
+  border: 2px solid lightgray;
+  border-radius: 5px;
+}
+
+.api-result-body p {
+  padding-bottom: 4px;
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: beige;
 }
 
 .main-footer {

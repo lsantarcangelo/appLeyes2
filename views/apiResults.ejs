@@ -7,17 +7,23 @@
 			<!-- header -->
 			<%- include('partials/headerNavbar') %>
 			<!-- /header -->
-			<div id="user-card" class="card">
-				<div class="card-body">
-					<p>
-						<p>Id Suscripcion: <span><%= suscription.id %></span></p>
-						<p>Servicio: <span><%= suscription.reason %></span></p>
-						<p>Payer id: <span><%= suscription.payer_id %></span></p>
-						<p>Payer Email: <span><%= suscription.payer_email %></span></p>
-						<p>Estado: <span><%= suscription.status %></span></p>
-						<br>
-						<button type="button" class="btn btn-info btn-sm" onclick="history.back()">Volver</button>
-					</p>
+			<div class="container col-lg-6 col-md-8 api-result-group ">
+				<h2 class="tittle-wrapper">Estado Suscripción</h2>
+				<div class="container api-result-wrapper">
+					<div class="row">
+						<div class="col-12">
+							<div class="api-result-body">
+								<p>Id Suscripcion: <span><%= suscription.id %></span></p>
+								<p>Servicio: <span><%= suscription.reason %></span></p>
+								<p>Payer id: <span><%= suscription.payer_id %></span></p>
+								<p>Payer Email: <span><%= suscription.payer_email %></span></p>
+								<p>Estado: <span><%= suscription.status %></span></p>			
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="button-group">
+					<button type="button" class="btn btn-info btn-sm" onclick="history.back()">Volver</button>
 				</div>
 			</div>
 		</div>
