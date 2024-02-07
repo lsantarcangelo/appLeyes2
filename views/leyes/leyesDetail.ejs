@@ -38,8 +38,6 @@
 					<form id="deleteForm" action="/leyes/delete/<%= leyDetail.id%>" method="POST">
 					</form>
 					<div class="button-group">
-						<!-- Boton para Volver -->
-						<button type="button" class="btn btn-info btn-sm" onclick="history.back()">Volver</button>
 						<!-- Boton de Edicion -->
 						<% if (locals.isLogged) { %>
 							<% if (locals.loggedUser.admin == 1) { %>
@@ -52,7 +50,7 @@
 						<% if (locals.isLogged) { %>
 							<% if (locals.loggedUser.admin == 1) { %>
 								<a href="/leyes/attachments/<%= leyDetail.id %>" class="btn btn-info btn-sm edit-button">
-									Cargar Anexo
+									Adjuntar
 								</a>
 							<% } %>
 						<% } %> 
@@ -61,7 +59,9 @@
 							<% if (locals.loggedUser.admin == 1) { %>
 								<button type="submit" form="deleteForm" class="btn btn-info btn-sm edit-button">Eliminar</button>
 							<% } %>
-						<% } %> 
+						<% } %>
+						<!-- Boton para Volver -->
+						<button type="button" class="btn btn-info btn-sm edit-button" onclick="history.back()">Volver</button> 
 					</div>
 				</div>
 			</div>

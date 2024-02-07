@@ -14,28 +14,30 @@
                     <div class="row">
                         <div class="col-12">
                             <form id="suscriptionForm" action="/api/suscription" method="POST">
-                                <div class="form-group col-12 col-md-6">
-                                    <label for="frequency" class="form-label">Frecuencia:</label>
-                                    <input type="text" id="frequency" name="frequency" class="form-control" value="Mensual" readonly>
-                                </div>
-                                <div class="form-group col-12 col-md-6">
-                                    <label for="transactionAmount" class="form-label">Monto:</label>
-                                    <input type="text" id="transactionAmount" name="transactionAmount" class="form-control" value="$10" readonly>
-                                </div>
-                                <div class="form-group col-12 col-md-6">
-                                    <label for="mercadoEmail" class="form-label">Mail de Mercado Pago:</label>
-                                    <input type="email" id="mercadoEmail" name="mercadoEmail" class="form-control">
+                                <div class="row">
+                                    <div class="form-group col-12 ">
+                                        <label for="frequency" class="form-label">Frecuencia:</label>
+                                        <input type="text" id="frequency" name="frequency" class="form-control" value="Mensual" readonly>
+                                    </div>
+                                    <div class="form-group col-12 ">
+                                        <label for="transactionAmount" class="form-label">Monto:</label>
+                                        <input type="text" id="transactionAmount" name="transactionAmount" class="form-control" value="$10" readonly>
+                                    </div>
+                                    <div class="form-group col-12 ">
+                                        <label for="mercadoEmail" class="form-label">Mail de Mercado Pago:</label>
+                                        <input type="email" id="mercadoEmail" name="mercadoEmail" class="form-control">
+                                    </div>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
                 <div class="button-group">
-                    <button type="submit" form="suscriptionForm" class="btn btn-info btn-sm">Enviar</button>
+                    <button type="submit" form="suscriptionForm" class="btn btn-info btn-sm edit-button">Suscribirse</button>
+                    <a href="/api/status" class="btn btn-info btn-sm edit-button">Consultar</a>
+                    <a href="/api/pauseSuscription" class="btn btn-info btn-sm edit-button">Pausar</a>
+                    <a href="/api/reactSuscription" class="btn btn-info btn-sm edit-button">Reactivar</a>
                     <button type="button" class="btn btn-info btn-sm edit-button" onclick="history.back()">Volver</button>
-                    <a href="/api/status" class="btn btn-info btn-sm edit-button">Consultar Estado</a>
-                    <a href="/api/pauseSuscription" class="btn btn-info btn-sm edit-button">Pausar Suscripcion</a>
-                    <a href="/api/reactSuscription" class="btn btn-info btn-sm edit-button">Reactivar Suscripcion</a>
                 </div>
             </div>
         </div>

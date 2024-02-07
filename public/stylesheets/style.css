@@ -6,7 +6,6 @@
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-
 }
 
 a {
@@ -131,11 +130,14 @@ a.dropdown-item:hover {
 .button-group {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 20px;
 }
 
 .edit-button {
-  margin-left: 4px;
+  margin: 2px 2px;
+  flex: 1;
 }
 
 #mainFile {

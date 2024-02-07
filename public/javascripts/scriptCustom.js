@@ -9,5 +9,6 @@ window.addEventListener("load", function() {
                 selectedInfo.textContent = `${file.name}`
             }
         }
-    })
+    });
+
 });

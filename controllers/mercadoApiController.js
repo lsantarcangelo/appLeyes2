@@ -55,14 +55,11 @@ const mercadoApiController = {
         }                
     },
     suscriptionStatus: async (req, res) => {
-        console.log(req.session.loggedUser);
         const loggedUser = req.session.loggedUser;
         const localSuscription = await db.Suscription.findOne({where: {user_id: loggedUser.id}});
         if (localSuscription) {
             const preId = localSuscription.dataValues.suscription_id; 
-            console.log(process.env.ACCESS_TOKEN);
             const url = `https://api.mercadopago.com/preapproval/${preId}`;
-            console.log(url);
             let suscription = await fetch(url, {
                 headers: {
                     Authorization: `Bearer ${process.env.ACCESS_TOKEN}`
